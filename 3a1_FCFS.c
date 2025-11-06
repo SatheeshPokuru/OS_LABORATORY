@@ -28,7 +28,7 @@ int main()
         p[i].start = time;
         p[i].ct = p[i].start + p[i].bt;
         p[i].tat = p[i].ct - p[i].at;
-        p[i].wt = p[i].tat = p[i].bt;
+        p[i].wt = p[i].tat - p[i].bt;
         p[i].rt = p[i].start - p[i].at;
 
         time = p[i].ct;
@@ -43,9 +43,9 @@ int main()
     {
         printf("P%d\t%d\t%d\t%d\t%d\t%d\t%d\n",p[i].id, p[i].at, p[i].bt,p[i].ct, p[i].tat, p[i].wt, p[i].rt);
     }
-    printf("Average Waiting Time = %.2f\n",total_wt);
-    printf("Average Turn Around Time = %.2f\n",total_tat);
-    printf("Average Response Time = %.2f\n",total_rt);
+    printf("Average Waiting Time = %.2f\n",total_wt/n);
+    printf("Average Turn Around Time = %.2f\n",total_tat/n);
+    printf("Average Response Time = %.2f\n",total_rt/n);
 
     printf("\nGantt Chart\n\n|");
     time = 0;
