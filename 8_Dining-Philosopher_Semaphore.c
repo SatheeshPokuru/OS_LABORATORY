@@ -33,8 +33,7 @@ void *philosopher(void *arg) {
 
         // eating
         printf("P%d is EATING (meal %d)\n", id, i + 1);
-        // OS CSE308 SASTRA Deemed University 
-        // By Dr. P. Venkateswari AP / CSE / SRC Page 7
+
         usleep(120000); // 0.12s
 
         // put down forks
