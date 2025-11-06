@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<unistd.h>
-#include<stdlib.h>2
+#include<stdlib.h>
 int main(int argc , char* argv[])
 {
     int i=0,n=3;
