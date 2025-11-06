@@ -3,6 +3,7 @@
 #include<sys/types.h>
 #include<sys/shm.h>
 #include<sys/ipc.h>
+#include<unistd.h>
 #define SHMSZ 27
 
 int main()
@@ -31,7 +32,9 @@ int main()
     
     printf("Shared memory altered by client is : ");
     while(*shm!='*')
+    {
         sleep(1);
+    }
     printf("%s",shm);
     exit(0);
 }
