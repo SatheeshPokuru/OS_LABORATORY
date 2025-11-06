@@ -35,24 +35,32 @@ int main() {
     // Gantt chart arrays
     int gcID[500], gcST[500], gcCT[500], gcCount = 0;
 
-    while (completed < n) {
+    while (completed < n) 
+    {
         int idx = -1, slice = 0, bestQ = 4;
 
         // Pick highest-priority ready process
-        for (int i = 0; i < n; i++) {
-            if (p[i].rbt > 0 && p[i].at <= time && p[i].qlevel < bestQ) {
+        for (int i = 0; i < n; i++) 
+        {
+            if (p[i].rbt > 0 && p[i].at <= time && p[i].qlevel < bestQ) 
+            {
                 idx = i;
                 bestQ = p[i].qlevel;
             }
         }
 
-        if (idx != -1) {
+        if (idx != -1) 
+        {
             if (p[idx].rt == -1) 
                 p[idx].rt = time - p[idx].at;  // Response time
 
             // Allocate CPU slice
-            if (p[idx].qlevel == 1) slice = (p[idx].rbt > tq1) ? tq1 : p[idx].rbt;
-            else if (p[idx].qlevel == 2) slice = (p[idx].rbt > tq2) ? tq2 : p[idx].rbt;
+            if (p[idx].qlevel == 1) 
+                slice = (p[idx].rbt > tq1) ? tq1 : p[idx].rbt;
+
+            else if (p[idx].qlevel == 2) 
+                slice = (p[idx].rbt > tq2) ? tq2 : p[idx].rbt;
+
             else slice = p[idx].rbt;
 
             // Record Gantt chart
@@ -64,7 +72,8 @@ int main() {
             gcCount++;
 
             // If finished
-            if (p[idx].rbt == 0) {
+            if (p[idx].rbt == 0) 
+            {
                 p[idx].ct = time;
                 p[idx].tat = p[idx].ct - p[idx].at;
                 p[idx].wt = p[idx].tat - p[idx].bt;
@@ -73,11 +82,15 @@ int main() {
                 total_wt += p[idx].wt;
                 total_tat += p[idx].tat;
                 total_rt += p[idx].rt;
-            } else {
+            } 
+            else 
+            {
                 // Demote process
                 if (p[idx].qlevel < 3) p[idx].qlevel++;
             }
-        } else {
+        } 
+        else
+        {
             // CPU idle
             gcID[gcCount] = 0;
             gcST[gcCount] = time;
@@ -101,14 +114,18 @@ int main() {
 
     // -------- Gantt Chart --------
     printf("\nGantt Chart:\n|");
-    for (int i = 0; i < gcCount; i++) {
-        if (gcID[i] == 0) printf(" Idle |");
-        else printf("  P%d  |", gcID[i]);
+    for (int i = 0; i < gcCount; i++) 
+    {
+        if (gcID[i] == 0) 
+            printf(" Idle |");
+        else 
+            printf("  P%d  |", gcID[i]);
     }
     printf("\n");
 
     printf("%d", gcST[0]);
-    for (int i = 0; i < gcCount; i++) {
+    for (int i = 0; i < gcCount; i++) 
+    {
         printf("     %d", gcCT[i]);
     }
     printf("\n");
