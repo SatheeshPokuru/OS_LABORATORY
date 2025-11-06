@@ -1,3 +1,6 @@
+/* Command to run : gcc 5a_thread.c -lpthread */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
