@@ -104,9 +104,9 @@ int main()
 
     int block1[m], block2[m], block3[m];
     for (int i = 0; i < m; i++) {
-    block1[i] = blockSize[i];
-    block2[i] = blockSize[i];
-    block3[i] = blockSize[i];
+        block1[i] = blockSize[i];
+        block2[i] = blockSize[i];
+        block3[i] = blockSize[i];
     }
     firstFit(block1, m, processSize, n);
     bestFit(block2, m, processSize, n);

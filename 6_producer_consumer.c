@@ -16,9 +16,11 @@ int out = 0; // next read index
 /* simple item counter (for producing item numbers) */
 int produced_count = 0;
 
-void producer() {
+void producer() 
+{
     /* try to enter critical section */
-    if (mutex == 1 && empty > 0) {
+    if (mutex == 1 && empty > 0) 
+    {
         --mutex; // lock
 
         /* produce an item */
@@ -33,14 +35,18 @@ void producer() {
         --empty;
 
         ++mutex; // unlock
-    } else {
+    }
+    else
+    {
         printf("\nCannot produce: Buffer is full or locked.\n");
     }
 }
 
-void consumer() {
+void consumer() 
+{
     /* try to enter critical section */
-    if (mutex == 1 && full > 0) {
+    if (mutex == 1 && full > 0) 
+    {
         --mutex; // lock
 
         /* consume an item */
@@ -51,16 +57,20 @@ void consumer() {
         ++empty;
 
         ++mutex; // unlock
-    } else {
+    } 
+    else 
+    {
         printf("\nCannot consume: Buffer is empty or locked.\n");
     }
 }
 
-int main() {
+int main() 
+{
     int choice;
     printf("Producer-Consumer simulation (buffer size = %d)\n", BUFFER_SIZE);
 
-    while (1) {
+    while (1) 
+    {
         printf("\nMenu:\n");
         printf(" 1. Produce\n");
         printf(" 2. Consume\n");
@@ -68,13 +78,15 @@ int main() {
         printf(" 4. Exit\n");
         printf("Enter your choice: ");
 
-        if (scanf("%d", &choice) != 1) {
+        if (scanf("%d", &choice) != 1) 
+        {
             /* handle non-integer input */
             fprintf(stderr, "Invalid input. Exiting.\n");
             exit(EXIT_FAILURE);
         }
 
-        switch (choice) {
+        switch (choice) 
+        {
             case 1:
                 if (mutex == 1 && empty > 0)
                     producer();
@@ -91,11 +103,15 @@ int main() {
 
             case 3:
                 printf("\nBuffer state (full=%d empty=%d):\n", full, empty);
-                if (full == 0) {
+                if (full == 0) 
+                {
                     printf(" [empty]\n");
-                } else {
+                } 
+                else 
+                {
                     int i, idx = out;
-                    for (i = 0; i < full; ++i) {
+                    for (i = 0; i < full; ++i) 
+                    {
                         printf(" buffer[%d] = %d\n", idx, buffer[idx]);
                         idx = (idx + 1) % BUFFER_SIZE;
                     }
