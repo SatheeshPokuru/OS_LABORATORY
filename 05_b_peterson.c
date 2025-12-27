@@ -14,10 +14,12 @@ void *process_func(void *arg) {
     int i = *((int *)arg);
     int j = 1 - i;
 
-    for (int iter = 0; iter < ITER; ++iter) {
+    for (int iter = 0; iter < ITER; ++iter) 
+    {
         flag[i] = 1;
         turn = j;
-        while (flag[j] && turn == j) {
+        while (flag[j] && turn == j) 
+        {
             usleep(100);
         }
 

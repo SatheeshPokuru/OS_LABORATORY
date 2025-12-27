@@ -117,16 +117,16 @@ int main() {
     for (int i = 0; i < gcCount; i++) 
     {
         if (gcID[i] == 0) 
-            printf(" Idle |");
+            printf("\tIdle\t|");
         else 
-            printf("  P%d  |", gcID[i]);
+            printf("\tP%d\t|", gcID[i]);
     }
     printf("\n");
 
     printf("%d", gcST[0]);
     for (int i = 0; i < gcCount; i++) 
     {
-        printf("     %d", gcCT[i]);
+        printf("\t\t%d", gcCT[i]);
     }
     printf("\n");
 
