@@ -55,6 +55,11 @@ void orphan()
     
 }
 
+
+void fn() {
+    //do nothing
+}
+
 int main()
 {
     // printf("Normal !!!");
