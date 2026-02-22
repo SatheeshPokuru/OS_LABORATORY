@@ -47,8 +47,14 @@ void orphan()
         sleep(1);
         printf("Child Process Terminating : %d\n",getpid());
     }
+
+    else if (id==-1) {
+        printf("It is Invalid \n");
+    }
+
     else
         printf("Fork Failed\n");
+    
 }
 
 int main()
